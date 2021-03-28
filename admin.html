@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="styles/style-about.css">
+    <link rel="stylesheet" href="styles/style-admin.css">
     <title>About PAGE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -25,7 +25,7 @@
             </li>
             <li>
                 <button type="button">About</button>
-                <button type="button" class="hide"><a href="about.html">You are here.</a></button>
+                <button type="button" class="hide"><a href="about.html">Extra info</a></button>
             </li>
              <li>
 				<button type="button">Admin</button>
@@ -42,23 +42,25 @@
 
 
         <div class="display-area">
+		
+		<form action="" method="post">
+  
 
-            <p>Project start info</p>
-            <p>
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" name="username" required>
 
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="password" required>
 
-                OPreV (Obesity Prevalence Visualizer) [M] Sa se creeze o aplicatie Web capabila a vizualiza si compara informatii referitoare la obezitatea populatiei – a se folosi datele publice furnizate de Eurostat si WHO – pe baza unui API REST/GraphQL propriu. Statisticile,
-                comparatiile pe baza mai multor criterii, plus vizualizarile generate – minim 3 maniere – vor putea fi exportate in formatele CSV, PNG si SVG. Resurse suplimentare privind vizualizarea datelor: https://profs.info.uaic.ro/~busaco/teach/courses/cliw/web-film.html#week4.
+    <button class="button-log" type="submit">Login</button>
+    <label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
+  </div>
 
-
-            </p>
-
-            <p>The team behind the project:</p>
-            <ul>
-                <li>Mirila Vasile Danut 2A2</li>
-                <li>Iamandi Andrei-Petrisor 2A2</li>
-            </ul>
-            <p></p>
+  
+</form>
         </div>
 
     </main>

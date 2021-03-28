@@ -1,0 +1,125 @@
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    width: 95%;
+}
+
+header {
+    margin-top: 2.5em;
+    padding-left: 1em;
+    padding-right: 10em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border: 2px solid red;
+    border-radius: 5px;
+}
+
+.top-menu {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+
+
+li {
+    list-style-type: none;
+}
+
+li button {
+    background-color: rgb(0, 183, 255);
+    width: 10em;
+    height: 6em;
+}
+
+li button:hover + .hide{
+	 display:inline-block;
+	 box-shadow: inset 2px 2px 2px 2px #111111;
+  	 background-color: rgb(0,158,225);
+	
+}
+li button:hover{
+	display:none;
+}
+
+.hide {
+  display: none;
+}
+
+
+main {
+    height: auto;
+    border: 2px solid green;
+    border-radius: 5px;
+}
+
+
+
+.display-area {
+    height: 500px;
+    width: 100%;
+    border: 2px solid black;
+	
+}
+
+
+
+
+form {
+  border: 3px solid #f1f1f1;
+}
+
+input[type=text], input[type=password] {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.button-log {
+  background-color: rgb(0,158,225);
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+  
+}
+
+.button-log:hover {
+  opacity: 0.8;
+}
+
+.container {
+  padding: 16px;
+}
+
+@media screen and (max-width: 800px) {
+  .container{
+	  width:40%;
+  }
+  li button{
+	  width:6em;
+  }
+}
+
+
+
+
+
+
+footer {
+    padding-left: 1em;
+    padding-right: 10em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+    border: 2px solid #69FF20;
+    border-radius: 5px;
+}
