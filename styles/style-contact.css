@@ -5,6 +5,9 @@ html {
 body {
     min-height: 100%;
     width: 95%;
+	background-image: linear-gradient(to top right, rgba(62,242,236,0) 0%, rgba(0,233,233,0.5) 65%,rgba(123,205,0,1) 100%);
+	 background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 header {
@@ -21,7 +24,7 @@ header {
     height: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .menu-box {
@@ -112,6 +115,21 @@ main {
 input[type=text]:focus,
 textarea:focus {
     border: 3px solid #555;
+}
+
+@media screen and (max-width: 800px) {
+ 
+  li button{
+	  width:6em;
+  }
+  
+}
+
+@media screen and (max-width: 500px) {
+	
+	li button{
+		width:4em;
+	}
 }
 
 footer {
