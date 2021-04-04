@@ -138,7 +138,7 @@ button:hover {
     text-align: left;
 }
 
-@media screen and (max-width: 825px) {
+@media screen and (max-width: 800px) {
     .button-menu:hover+.hide {
     display: none;
 	}
