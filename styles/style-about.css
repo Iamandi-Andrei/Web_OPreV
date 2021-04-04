@@ -5,8 +5,8 @@ html {
 body {
     min-height: 100%;
     width: 95%;
-	background-image: linear-gradient(to top right, rgba(62,242,236,0) 0%, rgba(0,233,233,0.5) 65%,rgba(123,205,0,1) 100%);
-	 background-repeat: no-repeat;
+    background-image: linear-gradient(to top right, rgba(62, 242, 236, 0) 0%, rgba(0, 233, 233, 0.5) 65%, rgba(123, 205, 0, 1) 100%);
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
@@ -27,48 +27,46 @@ header {
     justify-content: space-around;
 }
 
-.menu-box {
-    display: flex;
-    width: 10em;
-    height: 6em;
-    background-color: rgb(0, 183, 255);
-    border-radius: 25px;
-    justify-content: center;
-    align-items: center;
-}
-
 li {
     list-style-type: none;
 }
 
-li button {
+.button-menu {
     background-color: rgb(0, 183, 255);
-    width: 10em;
-    height: 6em;
+    display: inline-block;
+    width: 8em;
+    height: 5em;
+    border: 3px solid black;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
-li button:hover + .hide{
-	 display:inline-block;
-	 box-shadow: inset 2px 2px 2px 2px #111111;
-  	 background-color: rgb(0,158,225);
-	
+.button-menu:hover {
+    display: none;
 }
-li button:hover{
-	display:none;
+
+.button-menu:hover+.hide {
+    display: block;
+    box-shadow: inset 2px 2px 2px 2px #111111;
+    background-color: rgb(0, 158, 225);
+    width: 8em;
+    height: 5em;
+    border: 3px solid black;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .hide {
-  display: none;
+    display: none;
 }
-
 
 main {
     height: auto;
     border: 2px solid green;
     border-radius: 5px;
 }
-
-
 
 .display-area {
     height: 500px;
@@ -83,20 +81,19 @@ footer {
     padding-bottom: 0.1em;
     border: 2px solid #69FF20;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
-
 @media screen and (max-width: 825px) {
- 
-  li button{
-	  width:6em;
-  }
-  
+    li button {
+        width: 6em;
+    }
 }
 
 @media screen and (max-width: 525px) {
-	
-	li button{
-		width:4em;
-	}
+    li button {
+        width: 4em;
+    }
 }

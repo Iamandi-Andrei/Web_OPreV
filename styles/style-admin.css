@@ -5,8 +5,8 @@ html {
 body {
     min-height: 100%;
     width: 95%;
-	background-image: linear-gradient(to top right, rgba(62,242,236,0) 0%, rgba(0,233,233,0.5) 65%,rgba(123,205,0,1) 100%);
-	 background-repeat: no-repeat;
+    background-image: linear-gradient(to top right, rgba(62, 242, 236, 0) 0%, rgba(0, 233, 233, 0.5) 65%, rgba(123, 205, 0, 1) 100%);
+    background-repeat: no-repeat;
     background-attachment: fixed;
 }
 
@@ -27,32 +27,40 @@ header {
     justify-content: space-around;
 }
 
-
-
 li {
     list-style-type: none;
 }
 
-li button {
+.button-menu {
     background-color: rgb(0, 183, 255);
-    width: 10em;
-    height: 6em;
+    display: inline-block;
+    width: 8em;
+    height: 5em;
+    border: 3px solid black;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
-li button:hover + .hide{
-	 display:inline-block;
-	 box-shadow: inset 2px 2px 2px 2px #111111;
-  	 background-color: rgb(0,158,225);
-	
+.button-menu:hover {
+    display: none;
 }
-li button:hover{
-	display:none;
+
+.button-menu:hover+.hide {
+    display: block;
+    box-shadow: inset 2px 2px 2px 2px #111111;
+    background-color: rgb(0, 158, 225);
+    width: 8em;
+    height: 5em;
+    border: 3px solid black;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .hide {
-  display: none;
+    display: none;
 }
-
 
 main {
     height: auto;
@@ -60,67 +68,54 @@ main {
     border-radius: 5px;
 }
 
-
-
 .display-area {
     height: 500px;
     width: 100%;
     border: 2px solid black;
-	
 }
 
-
-
-
-
-input[type=text], input[type=password] {
-  width: 100%;
-  padding: 10px 20px;
-  margin: 8px 0;
-  display: inline-block;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
+input[type=text],
+input[type=password] {
+    width: 100%;
+    padding: 10px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
 }
 
 .button-log {
-  background-color: rgb(0,158,225);
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 30%;
-  
+    background-color: rgb(0, 158, 225);
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
 }
 
 .button-log:hover {
-  opacity: 0.8;
+    opacity: 0.8;
 }
 
 .container {
-  padding: 16px;
+    padding: 16px;
 }
 
 @media screen and (max-width: 825px) {
-  .container{
-	  width:40%;
-  }
-  li button{
-	  width:6em;
-  }
+    .container {
+        width: 40%;
+    }
+    li button {
+        width: 6em;
+    }
 }
 
 @media screen and (max-width: 525px) {
-	
-	li button{
-		width:4em;
-	}
+    li button {
+        width: 4em;
+    }
 }
-
-
-
-
-
 
 footer {
     padding-left: 1em;
@@ -129,4 +124,7 @@ footer {
     padding-bottom: 0.1em;
     border: 2px solid #69FF20;
     border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }

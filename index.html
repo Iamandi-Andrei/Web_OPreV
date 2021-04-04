@@ -12,25 +12,25 @@
         <ul class="top-menu">
 
             <li>
-                <button type="button">Main page</button>
-                <button type="button" class="hide"><a href="index.html">You are here.</a></button>
+                <a class="button-menu" href="index.html">Main page</a>
+                <a class="hide" href="index.html">You are here.</a>
             </li>
             <li>
-                <button type="button">Information Source</button>
-                <button type="button" class="hide">A list of sites used for the project.</button>
+                <a class="button-menu">Information Source</a>
+                <a class="hide">A list of sites used for the project.</a>
             </li>
             <li>
-                <button type="button">Contact</button>
-                <button type="button" class="hide"><a href="contact.html">A way of contacting the team.</a></button>
+                <a class="button-menu" href="contact.html">Contact</a>
+                <a class="hide" href="contact.html">A way of contacting the team.</a>
             </li>
             <li>
-                <button type="button">About</button>
-                <button type="button" class="hide"><a href="about.html">Extra info about the site.</a></button>
+                <a class="button-menu" href="about.html">About</a>
+                <a class="hide" href="about.html">Extra info about the site.</a>
             </li>
-			<li>
-				<button type="button">Admin</button>
-				<button type="button" class="hide"><a href="admin.html">Admin module here</a></button>
-			</li>
+            <li>
+                <a class="button-menu" href="admin.html">Admin</a>
+                <a class="hide" href="admin.html">Admin module here</a>
+            </li>
         </ul>
     </header>
 
@@ -39,49 +39,281 @@
 
         <form class="form-area">
 
-            <label for="email">BMI something:</label>
+            <label for="email">BMI (Body Mass Index):</label>
             <select name="input1">
-        <option value="smth">Opt1</option>
-        <option value="smth">Opt2</option>
-        <option value="smth">Opt3</option>
-      </select>
-            <label for="pwd">Criteria1:</label>
+                <option value="smth">Overweight (&#60;25)</option>
+                <option value="smth">Pre-obese (25-29)</option>
+                <option value="smth">Obese (&#62;30)</option>
+            </select>
+            <label for="pwd">View mode:</label>
             <select name="input2">
-        <option value="smth">Opt1</option>
-        <option value="smth">Opt2</option>
-        <option value="smth">Opt3</option>
-      </select>
-
-            <label for="pwd">Criteria2:</label>
-            <select name="input2">
-        <option value="smth">Opt1</option>
-        <option value="smth">Opt2</option>
-        <option value="smth">Opt3</option>
-      </select>
-
-            <label for="pwd">Criteria3:</label>
-            <select name="input2">
-        <option value="smth">Opt1</option>
-        <option value="smth">Opt2</option>
-        <option value="smth">Opt3</option>
-      </select>
-
+                <option value="smth">Table</option>
+                <option value="smth">Line</option>
+                <option value="smth">Bar</option>
+            </select>
 
             <button type="submit">Submit</button>
 
 
         </form>
 
-
-
         <div class="display-area">
-            <p>Here's where we show the info</p>
+            <table class="result-table">
+                <tbody>
+                    <tr>
+                        <td>GEO</td>
+                        <td>2008</td>
+                        <td>2014</td>
+                        <td>2017</td>
+                    </tr>
+                    <tr>
+                        <td>European Union - 27 countries (from 2020)</td>
+                        <td>:</td>
+                        <td>51.1</td>
+                        <td>51.8</td>
+                    </tr>
+                    <tr>
+                        <td>European Union - 28 countries (2013-2020)</td>
+                        <td>:</td>
+                        <td>51.6</td>
+                        <td>52.0</td>
+                    </tr>
+                    <tr>
+                        <td>European Union - 27 countries (2007-2013)</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>51.9</td>
+                    </tr>
+                    <tr>
+                        <td>Euro area - 19 countries (from 2015)</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>49.8</td>
+                    </tr>
+                    <tr>
+                        <td>Euro area - 18 countries (2014)</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>49.7</td>
+                    </tr>
+                    <tr>
+                        <td>Belgium</td>
+                        <td>47.5</td>
+                        <td>49.3</td>
+                        <td>48.7</td>
+                    </tr>
+                    <tr>
+                        <td>Bulgaria</td>
+                        <td>50.8</td>
+                        <td>54.0</td>
+                        <td>62.3</td>
+                    </tr>
+                    <tr>
+                        <td>Czechia</td>
+                        <td>56.6</td>
+                        <td>56.8</td>
+                        <td>62.3</td>
+                    </tr>
+                    <tr>
+                        <td>Denmark</td>
+                        <td>:</td>
+                        <td>47.7</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>Germany (until 1990 former territory of FRG)</td>
+                        <td>52.1</td>
+                        <td>52.1</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>Estonia</td>
+                        <td>51.0</td>
+                        <td>53.9</td>
+                        <td>56.1</td>
+                    </tr>
+                    <tr>
+                        <td>Greece</td>
+                        <td>56.3</td>
+                        <td>56.7</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>Spain</td>
+                        <td>53.0</td>
+                        <td>52.4</td>
+                        <td>51.7</td>
+                    </tr>
+                    <tr>
+                        <td>France</td>
+                        <td>43.6</td>
+                        <td>47.2</td>
+                        <td>46.1</td>
+                    </tr>
+                    <tr>
+                        <td>Croatia</td>
+                        <td>:</td>
+                        <td>57.4</td>
+                        <td>60.9</td>
+                    </tr>
+                    <tr>
+                        <td>Italy</td>
+                        <td>:</td>
+                        <td>44.9</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>Cyprus</td>
+                        <td>51.3</td>
+                        <td>48.3</td>
+                        <td>52.7</td>
+                    </tr>
+                    <tr>
+                        <td>Latvia</td>
+                        <td>54.9</td>
+                        <td>56.5</td>
+                        <td>57.0</td>
+                    </tr>
+                    <tr>
+                        <td>Lithuania</td>
+                        <td>:</td>
+                        <td>55.6</td>
+                        <td>56.2</td>
+                    </tr>
+                    <tr>
+                        <td>Luxembourg</td>
+                        <td>:</td>
+                        <td>48.0</td>
+                        <td>49.3</td>
+                    </tr>
+                    <tr>
+                        <td>Hungary</td>
+                        <td>54.9</td>
+                        <td>55.2</td>
+                        <td>56.3</td>
+                    </tr>
+                    <tr>
+                        <td>Malta</td>
+                        <td>59.7</td>
+                        <td>61.0</td>
+                        <td>62.2</td>
+                    </tr>
+                    <tr>
+                        <td>Netherlands</td>
+                        <td>:</td>
+                        <td>49.4</td>
+                        <td>47.0</td>
+                    </tr>
+                    <tr>
+                        <td>Austria</td>
+                        <td>49.3</td>
+                        <td>48.0</td>
+                        <td>50.0</td>
+                    </tr>
+                    <tr>
+                        <td>Poland</td>
+                        <td>54.0</td>
+                        <td>54.7</td>
+                        <td>56.0</td>
+                    </tr>
+                    <tr>
+                        <td>Portugal</td>
+                        <td>:</td>
+                        <td>53.6</td>
+                        <td>53.3</td>
+                    </tr>
+                    <tr>
+                        <td>Romania</td>
+                        <td>50.3</td>
+                        <td>55.8</td>
+                        <td>62.9</td>
+                    </tr>
+                    <tr>
+                        <td>Slovenia</td>
+                        <td>56.6</td>
+                        <td>56.6</td>
+                        <td>52.5</td>
+                    </tr>
+                    <tr>
+                        <td>Slovakia</td>
+                        <td>50.7</td>
+                        <td>54.2</td>
+                        <td>54.5</td>
+                    </tr>
+                    <tr>
+                        <td>Finland</td>
+                        <td>:</td>
+                        <td>54.7</td>
+                        <td>61.1</td>
+                    </tr>
+                    <tr>
+                        <td>Sweden</td>
+                        <td>:</td>
+                        <td>54.7</td>
+                        <td>61.1</td>
+                    </tr>
+                    <tr>
+                        <td>Iceland</td>
+                        <td>:</td>
+                        <td>57.6</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>Norway</td>
+                        <td>:</td>
+                        <td>49.3</td>
+                        <td>50.4</td>
+                    </tr>
+                    <tr>
+                        <td>Switzerland</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>:</td>
+                    </tr>
+                    <tr>
+                        <td>United Kingdom</td>
+                        <td>:</td>
+                        <td>55.7</td>
+                        <td>56.1</td>
+                    </tr>
+                    <tr>
+                        <td>North Macedonia</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>55.7</td>
+                    </tr>
+                    <tr>
+                        <td>Serbia</td>
+                        <td>:</td>
+                        <td>:</td>
+                        <td>49.5</td>
+                    </tr>
+                    <tr>
+                        <td>Turkey</td>
+                        <td>50.6</td>
+                        <td>56.5</td>
+                        <td>:</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </main>
 
     <footer>
-        <p>Here we have some extra info and stuff</p>
+        <form class="form-area">
+
+            <label for="email">Export as:</label>
+            <select name="input1">
+                <option value="smth">CSV</option>
+                <option value="smth">PNG</option>
+                <option value="smth">SVG</option>
+            </select>
+
+            <button type="submit">Submit</button>
+
+
+        </form>
     </footer>
 
 
