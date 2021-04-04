@@ -87,13 +87,25 @@ footer {
 }
 
 @media screen and (max-width: 825px) {
-    li button {
-        width: 6em;
+    .button-menu:hover+.hide {
+    display: none;
+	}
+	
+	
+	.button-menu:hover {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
     }
-}
 
-@media screen and (max-width: 525px) {
-    li button {
-        width: 4em;
+.button-menu {
+    
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    }
+
+    .form-area {
+        flex-flow: column wrap;
     }
 }
