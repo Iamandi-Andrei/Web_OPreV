@@ -1,0 +1,55 @@
+Introduction 
+---Purpose
+---Product Scope
+---references
+Overall Description
+---product functions
+---user classes and characteristics(admin/normal user)
+---assumptions and dependencies
+External Interface requirements
+---User interfaces
+---hardware interfaces?
+---software interfaces
+System features
+---Data viewing
+---Data export
+---Force update data
+---admin view site statistics
+other nonfunctional requirements
+---security requirements ( protectie vs atac x)
+
+Purpose
+The purpose of the aplication is to provide the user with the ability to view and save data about
+obesity using different data viewing techniques.
+
+Product scope
+Initially, the scope is purely educational as a way of learning about web technologies, but
+it can be later developed further, to ease the access of users to data, regardless of how or if
+they will use it further in other web sites.
+
+References
+--insert links to Who and Eurostat 
+
+Product functions
+The main function of the product is to provide easy to access information about obesity.
+The admin can also view different site visit statistics, and check if the shown data is still up to date.
+
+User classes and characteristics
+The normal user view and save data about obesity. He will be provided with different ways of viewing the information 
+and different export formats for the data.
+The admin will be identified using a name-password combination.
+He can view the site statistics such as how many times someone saw a certain category or saved it in a certain format.
+HE can also check the current database and check for discrepancies between the local data and the official data.
+
+Assumptions and dependencies
+We assume that the Who and Eurostat web sites will always provide reliable correct data and depend on their availability to provide it to our users.
+
+User interface
+---insert poza cu sageti catre butoane
+Software interfaces
+The product is connected to a local database that provides the displayed information.
+The messages going into the system will be the forms sent by users.
+The outgoing messages consist of the exported data when the user requests it.
+
+System features
+
