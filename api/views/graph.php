@@ -1,6 +1,6 @@
 <?php
 // include database and object files
-include_once 'database/database.php';
+include_once 'api/database/database.php';
 
   
 // instantiate database and product object
