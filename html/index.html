@@ -34,23 +34,23 @@
     <main>
 
 
-        <form class="form-area" action="">
+        <form class="form-area" action="../api/redirect.php">
 			<p>Hold down 'Ctrl' to select multiple options.</p>
             <label for="BMI-category">BMI (Body Mass Index):</label>
-            <select name="BMI_type" id="BMI_type" multiple>
-                <option value="Overweight">Overweight (&#60;25)</option>
+            <select name="BMI_type[]" id="BMI_type" multiple>
+                <option value="underweight">Overweight (&#60;25)</option>
                 <option value="Pre-obese">Pre-obese (25-29)</option>
                 <option value="Obese">Obese (&#62;30)</option>
             </select>
 			
 			 <label for="age-range">Age:</label>
-            <select name="age" id="age" multiple>
-                <option value="Children+adolescents">Children+adolescents</option>
-                <option value="Adults">Adults</option>
+            <select name="age[]" id="age" multiple>
+                <option value="children">Children+adolescents</option>
+                <option value="adults">Adults</option>
             </select>
 			
 			 <label for="location">Location:</label>
-            <select name="country" id="country" multiple>
+            <select name="country[]" id="country" multiple>
                 <option value="European Union">European Union</option>
 				<option value="Austria">Austria</option>
                 <option value="Belgium">Belgium</option>
@@ -91,14 +91,14 @@
             
 			
 			<label for="gender">Sex:</label>
-            <select name="gender" id="gender" multiple>
+            <select name="gender[]" id="gender" multiple>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
 				<option value="Both">Both</option>
             </select>
 			
 			<label for="year">Year:</label>
-            <select name="year" id="year" multiple>
+            <select name="year[]" id="year" multiple>
                 <option value="1970">1970</option>
                 <option value="1971">1971</option>
 				<option value="1972">1972</option>
@@ -143,9 +143,9 @@
 			
 			<label for="view">View mode:</label>
             <select name="view" id="view">
-                <option value="Table">Table</option>
-                <option value="Line">Line</option>
-                <option value="Bar">Bar</option>
+                <option value="table">Table</option>
+                <option value="line">Line</option>
+                <option value="bar">Bar</option>
             </select>
 
             <button type="submit">Submit</button>
@@ -153,245 +153,8 @@
 
         </form>
 
-        <div class="display-area">
-            <table class="result-table">
-                <tbody>
-                    <tr>
-                        <td>GEO</td>
-                        <td>2008</td>
-                        <td>2014</td>
-                        <td>2017</td>
-                    </tr>
-                    <tr>
-                        <td>European Union - 27 countries (from 2020)</td>
-                        <td>:</td>
-                        <td>51.1</td>
-                        <td>51.8</td>
-                    </tr>
-                    <tr>
-                        <td>European Union - 28 countries (2013-2020)</td>
-                        <td>:</td>
-                        <td>51.6</td>
-                        <td>52.0</td>
-                    </tr>
-                    <tr>
-                        <td>European Union - 27 countries (2007-2013)</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>51.9</td>
-                    </tr>
-                    <tr>
-                        <td>Euro area - 19 countries (from 2015)</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>49.8</td>
-                    </tr>
-                    <tr>
-                        <td>Euro area - 18 countries (2014)</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>49.7</td>
-                    </tr>
-                    <tr>
-                        <td>Belgium</td>
-                        <td>47.5</td>
-                        <td>49.3</td>
-                        <td>48.7</td>
-                    </tr>
-                    <tr>
-                        <td>Bulgaria</td>
-                        <td>50.8</td>
-                        <td>54.0</td>
-                        <td>62.3</td>
-                    </tr>
-                    <tr>
-                        <td>Czechia</td>
-                        <td>56.6</td>
-                        <td>56.8</td>
-                        <td>62.3</td>
-                    </tr>
-                    <tr>
-                        <td>Denmark</td>
-                        <td>:</td>
-                        <td>47.7</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Germany (until 1990 former territory of FRG)</td>
-                        <td>52.1</td>
-                        <td>52.1</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Estonia</td>
-                        <td>51.0</td>
-                        <td>53.9</td>
-                        <td>56.1</td>
-                    </tr>
-                    <tr>
-                        <td>Greece</td>
-                        <td>56.3</td>
-                        <td>56.7</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Spain</td>
-                        <td>53.0</td>
-                        <td>52.4</td>
-                        <td>51.7</td>
-                    </tr>
-                    <tr>
-                        <td>France</td>
-                        <td>43.6</td>
-                        <td>47.2</td>
-                        <td>46.1</td>
-                    </tr>
-                    <tr>
-                        <td>Croatia</td>
-                        <td>:</td>
-                        <td>57.4</td>
-                        <td>60.9</td>
-                    </tr>
-                    <tr>
-                        <td>Italy</td>
-                        <td>:</td>
-                        <td>44.9</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Cyprus</td>
-                        <td>51.3</td>
-                        <td>48.3</td>
-                        <td>52.7</td>
-                    </tr>
-                    <tr>
-                        <td>Latvia</td>
-                        <td>54.9</td>
-                        <td>56.5</td>
-                        <td>57.0</td>
-                    </tr>
-                    <tr>
-                        <td>Lithuania</td>
-                        <td>:</td>
-                        <td>55.6</td>
-                        <td>56.2</td>
-                    </tr>
-                    <tr>
-                        <td>Luxembourg</td>
-                        <td>:</td>
-                        <td>48.0</td>
-                        <td>49.3</td>
-                    </tr>
-                    <tr>
-                        <td>Hungary</td>
-                        <td>54.9</td>
-                        <td>55.2</td>
-                        <td>56.3</td>
-                    </tr>
-                    <tr>
-                        <td>Malta</td>
-                        <td>59.7</td>
-                        <td>61.0</td>
-                        <td>62.2</td>
-                    </tr>
-                    <tr>
-                        <td>Netherlands</td>
-                        <td>:</td>
-                        <td>49.4</td>
-                        <td>47.0</td>
-                    </tr>
-                    <tr>
-                        <td>Austria</td>
-                        <td>49.3</td>
-                        <td>48.0</td>
-                        <td>50.0</td>
-                    </tr>
-                    <tr>
-                        <td>Poland</td>
-                        <td>54.0</td>
-                        <td>54.7</td>
-                        <td>56.0</td>
-                    </tr>
-                    <tr>
-                        <td>Portugal</td>
-                        <td>:</td>
-                        <td>53.6</td>
-                        <td>53.3</td>
-                    </tr>
-                    <tr>
-                        <td>Romania</td>
-                        <td>50.3</td>
-                        <td>55.8</td>
-                        <td>62.9</td>
-                    </tr>
-                    <tr>
-                        <td>Slovenia</td>
-                        <td>56.6</td>
-                        <td>56.6</td>
-                        <td>52.5</td>
-                    </tr>
-                    <tr>
-                        <td>Slovakia</td>
-                        <td>50.7</td>
-                        <td>54.2</td>
-                        <td>54.5</td>
-                    </tr>
-                    <tr>
-                        <td>Finland</td>
-                        <td>:</td>
-                        <td>54.7</td>
-                        <td>61.1</td>
-                    </tr>
-                    <tr>
-                        <td>Sweden</td>
-                        <td>:</td>
-                        <td>54.7</td>
-                        <td>61.1</td>
-                    </tr>
-                    <tr>
-                        <td>Iceland</td>
-                        <td>:</td>
-                        <td>57.6</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>Norway</td>
-                        <td>:</td>
-                        <td>49.3</td>
-                        <td>50.4</td>
-                    </tr>
-                    <tr>
-                        <td>Switzerland</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>:</td>
-                    </tr>
-                    <tr>
-                        <td>United Kingdom</td>
-                        <td>:</td>
-                        <td>55.7</td>
-                        <td>56.1</td>
-                    </tr>
-                    <tr>
-                        <td>North Macedonia</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>55.7</td>
-                    </tr>
-                    <tr>
-                        <td>Serbia</td>
-                        <td>:</td>
-                        <td>:</td>
-                        <td>49.5</td>
-                    </tr>
-                    <tr>
-                        <td>Turkey</td>
-                        <td>50.6</td>
-                        <td>56.5</td>
-                        <td>:</td>
-                    </tr>
-                </tbody>
-            </table>
+        <div class="display-area" id="display-area">
+            
         </div>
 
     </main>
