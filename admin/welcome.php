@@ -1,0 +1,72 @@
+<?php
+
+    session_start();
+    if(!isset($_SESSION['login']) || !$_SESSION['login']) {
+        header("Location: login-required.php");
+    } 
+
+?>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <link rel="stylesheet" href="http://localhost/Web_OPrev/html/styles/style-admin.css">
+    <title>About PAGE</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+</head>
+
+<body>
+    <header>
+        <ul class="top-menu">
+            <li>
+                <a class="button-menu" href="index.php">Main page</a>
+                <a class="hide" href="index.php">Area where the main functionality is.</a>
+            </li>
+           
+            <li>
+                <a class="button-menu" href="contact.php">Contact</a>
+                <a class="hide" href="contact.php">A way of contacting the team.</a>
+            </li>
+            <li>
+                <a class="button-menu" href="about.php">About</a>
+                <a class="hide" href="about.php">Extra info about the site.</a>
+            </li>
+            <li>
+                <a class="button-menu" href="admin.php">Admin</a>
+                <a class="hide" href="admin.php">You are here.</a>
+            </li>
+        </ul>
+    </header>
+
+    <main>
+        <div class="display-area" id="display-area">
+            <form method="post" action="./check-visits.php">
+                <button class="button-log" type="submit">
+                    CHECK VISITS
+                </button>
+            </form>
+            <form method="post" action="./update-db.php">
+                <button class="button-log" type="submit">
+                    UPDATE DB
+                </button>
+            </form>
+            <form method="post" action="./logout.php">
+                <button class="button-log" type="submit">
+                    LOGOUT
+                </button>
+            </form>
+        </div>
+
+    </main>
+
+    <footer>
+        <p>Web_OPrev by Iamandi Andrei-Petrisor and Mirila Vasile Danut</p>
+		<p>Data provided by <a href="https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en"> Eurostat</a> and 
+			<a href="https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi)?introPage=intro_3.html">WHO</a>
+		</p>
+    </footer>
+
+
+</body>
+
+</html>
