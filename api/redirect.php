@@ -3,12 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 //header("Location: http://localhost/Web_OPreV/%22);
 
 
-    $dom = new DomDocument; // instanțiem un obiect DOM
 
-    $insertPlace= new DomDocument;
-    $insertPlace->loadHTMLFile("http://localhost/github/Web_OPreV/html/index.html");
-
-    $location=$insertPlace->getElementById("display-area");
 
 
 
@@ -26,6 +21,14 @@ error_reporting(E_ERROR | E_PARSE);
       $pos=strpos($url,"api/redirect.php");
 	  $url=substr($url,0,$pos);
  //   echo $url;  
+ 
+     $dom = new DomDocument; // instanțiem un obiect DOM
+
+    $insertPlace= new DomDocument;
+    $insertPlace->loadHTMLFile($url."html/index.html");
+
+    $location=$insertPlace->getElementById("display-area");
+ 
 	
 	
 $url=$url."api/views/".$_GET['view'].".php?";
