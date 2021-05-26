@@ -9,7 +9,7 @@
 
  
 
-include_once 'api/database/database.php';
+include_once '../database/database.php';
 
   
 // instantiate database and product object
@@ -17,7 +17,7 @@ $database = new Database();
 $db = $database->getConnection();
   
 $results=array();
-$sql = "select * from data order by year desc";
+$sql = "select * from data order by year asc";
 
 
 
@@ -209,7 +209,7 @@ foreach($pairs as $unique){
 		$color ="(".mt_rand(0, 255).",".mt_rand(0, 255).",".mt_rand(0, 255).")";
 		if((count($options)>1)&&(count($values)>1)){
 			$yP=$y."%";
-			echo "<text x='0.2%' y=".$yP." fill='rgb".$color."' style='font-size: 10pt' >".$unique['country']."</text>";
+			echo "<text x='0.2%' y=".$yP." fill='rgb".$color."' style='font-size: 10pt' >".$unique['country']." ".$unique['BMI_type']." </text>";
 			echo "<text x='0.2%' y=".($y+1)."% fill ='rgb".$color."' style='font-size:10pt' >".$unique['age']." ".$unique['gender']."</text>";
 			$y=$y+$perc;
 	printGraph($options,$values,$color);

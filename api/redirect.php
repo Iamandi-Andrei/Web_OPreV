@@ -10,11 +10,25 @@ error_reporting(E_ERROR | E_PARSE);
 
     $location=$insertPlace->getElementById("display-area");
 
-	chdir("..");
-	chdir("html");
+
 
 	//	$url="http://localhost/Web_OPreV/redirect/type=".$_GET['type']."/BMI=".$_GET['BMI']."/gender=".$_GET['gender']."/location=".$_GET['location']."/year=".$_GET['year']."/age=".$_GET['age'];
-$url="http://localhost/github/Web_OPreV/api/views/".$_GET['view'].".php?";
+	
+	if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+         $url = "https://";   
+    else  
+         $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
+    
+    // Append the requested resource location to the URL   
+    $url.= $_SERVER['REQUEST_URI'];    
+      $pos=strpos($url,"api/redirect.php");
+	  $url=substr($url,0,$pos);
+ //   echo $url;  
+	
+	
+$url=$url."api/views/".$_GET['view'].".php?";
 if(isset($_GET['country'])){
 $url=$url."country=";
 foreach($_GET['country'] as $count)
