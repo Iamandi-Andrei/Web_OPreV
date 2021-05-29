@@ -36,7 +36,7 @@
     <main>
 
 
-        <form action=""id="main-form" class="form-area" onsubmit="submitResult()">
+        <form id="main-form" class="form-area" >
 			<p>Hold down 'Ctrl' to select multiple options.</p>
             <label for="BMI-category">BMI (Body Mass Index):</label>
             <select name="BMI_type" id="BMI_type" multiple>
@@ -73,7 +73,7 @@
                 <option value="bar">Bar</option>
             </select>
 
-            <button name="button"type="submit">Submit</button>
+            <button name="button" type="submit" onclick="submitResult(); return false;">Submit</button>
 
 
         </form>
