@@ -98,7 +98,7 @@ try {
     $view = 16.575 * $countryNumber;
     $view2 = $view * 1.81;
 
-    echo '<svg xmlns="http://www.w3.org/2000/svg" height="' . $view2 . '" width="100%" preserveAspectRatio="xMinYMin meet">';
+    echo '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="' . $view2 . '" width="100%" preserveAspectRatio="xMinYMin meet">';
     
     $i=0;
     $Y = 10;

@@ -64,7 +64,7 @@ $url=substr($url,0,-1);
 }
 
 
-echo $url;
+//echo $url;
 $result=file_get_contents($url);
 
 $doc = new DomDocument;

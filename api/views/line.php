@@ -123,14 +123,14 @@ foreach($pairs as $r)
 
 
 
- echo '<svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewbox="0 0 900 900" preserveAspectRatio="none">
+ echo '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewbox="0 0 900 900" preserveAspectRatio="none">
 <rect x="0" y="0" rx="7" ry="7" style="width: 100%; height: 100%;
 fill: #00CCEE; stroke: black"></rect>
 <line x1="0" y1="90%" x2="900" y2="90%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
 <line x1="10%" y1="0" x2="10%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
 <line x1="20%" y1="0" x2="20%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
 ';
-
+ob_flush();
 
 
 
@@ -144,6 +144,7 @@ function printGraph($options,$values,$color){
 			 $Y2=810-810*($values[$i]-$minValue)/($maxValue-$minValue);
 			
 			echo "<text x='15%' y=".$Y2." fill='rgb".$color."' style='font-size: 10pt' >".$values[$i]."</text>";
+			ob_flush();
 			}
 		$i++; 
 	 }
@@ -157,6 +158,7 @@ function printGraph($options,$values,$color){
 		 $Y1=810-810*(($prev-$minValue)/($maxValue-$minValue));
 		 $Y2=810-810*(($values[$i]-$minValue)/($maxValue-$minValue));	 
 		 echo "<line x1=".$valX1." y1=".$Y1." x2=".$valX2." y2=".$Y2." style='stroke:rgb".$color.";stroke-width:2'></line>";
+		 ob_flush();
 		 $prev=$values[$i];
 		 $i++;
 	 }
@@ -176,6 +178,7 @@ function printGraph($options,$values,$color){
 		$val=$current."%";
 		if($i%2==0)
 		echo '<text x="'.$val.'" y="100%" fill=red  >'.$years[$i]."</text>";
+	
 		else
 			echo '<text x="'.$val.'" y="92%" fill=red  >'.$years[$i]."</text>";
 		$current=$current+$percent;
@@ -183,6 +186,7 @@ function printGraph($options,$values,$color){
 		}
 	echo "<text x='15%' y=10 fill=red style='font-size: 10pt' >".$maxValue."</text>";
 	echo "<text x='15%' y=810 fill=red style='font-size: 10pt' >".$minValue."</text>";
+	ob_flush();
 	
 	/*
 $color ="(".mt_rand(0, 255).",".mt_rand(0, 255).",".mt_rand(0, 255).")";

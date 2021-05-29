@@ -86,7 +86,7 @@ function addTd($value) {
     echo '<td>' . $value . '</td>';
 }
 
-echo '<table class="result-table">';
+echo '<table class="result-table" id="svgg">';
 echo '<thead>';
 echo '<tr>';
 
