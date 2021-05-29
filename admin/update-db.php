@@ -10,7 +10,7 @@
 <html>
 
 <head>
-    <link rel="stylesheet" href="http://localhost/Web_OPreV/html/styles/style-admin.css">
+    <link rel="stylesheet" href="./../html/styles/style-admin.css">
     <title>About PAGE</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
@@ -19,28 +19,28 @@
     <header>
         <ul class="top-menu">
             <li>
-                <a class="button-menu" href="index.php">Main page</a>
-                <a class="hide" href="index.php">Area where the main functionality is.</a>
+                <a class="button-menu" href="./../html/index.php">Main page</a>
+                <a class="hide" href="./../html/index.php">Area where the main functionality is.</a>
             </li>
            
             <li>
-                <a class="button-menu" href="contact.php">Contact</a>
-                <a class="hide" href="contact.php">A way of contacting the team.</a>
+                <a class="button-menu" href="./../html/contact.php">Contact</a>
+                <a class="hide" href="./../html/contact.php">A way of contacting the team.</a>
             </li>
             <li>
-                <a class="button-menu" href="about.php">About</a>
-                <a class="hide" href="about.php">Extra info about the site.</a>
+                <a class="button-menu" href="./../html/about.php">About</a>
+                <a class="hide" href="./../html/about.php">Extra info about the site.</a>
             </li>
             <li>
-                <a class="button-menu" href="admin.php">Admin</a>
-                <a class="hide" href="admin.php">You are here.</a>
+                <a class="button-menu" href="./../html/admin.php">Admin</a>
+                <a class="hide" href="./../html/admin.php">You are here.</a>
             </li>
         </ul>
     </header>
 
     <main>
         <div class="display-area" id="display-area">
-        <form method="post" action="http://localhost/Web_OPreV/api/database/CRUD/delete.php">
+        <form method="post" action="./../api/database/CRUD/delete.php">
                 <label for="country">Select the country:</label>
                 <input type="text" id="country" name="country">
 
@@ -61,7 +61,7 @@
                 </button>
             </form>
 
-            <form method="post" action="http://localhost/Web_OPreV/api/database/CRUD/update-create.php">
+            <form method="post" action="./../api/database/CRUD/update-create.php">
                 <label for="country">Select the country that you want to update:</label>
                 <input type="text" id="country" name="country">
 

@@ -1,52 +1,27 @@
-<!DOCTYPE HTML>
-<html>
+<?php
+    session_start();
 
-<head>
-    <link rel="stylesheet" href="http://localhost/Web_OPrev/html/styles/style-admin.css">
-    <title>About PAGE</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+    $url = "https://";   
+    else  
+        $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
 
-<body>
-    <header>
-        <ul class="top-menu">
-            <li>
-                <a class="button-menu" href="index.php">Main page</a>
-                <a class="hide" href="index.php">Area where the main functionality is.</a>
-            </li>
-           
-            <li>
-                <a class="button-menu" href="contact.php">Contact</a>
-                <a class="hide" href="contact.php">A way of contacting the team.</a>
-            </li>
-            <li>
-                <a class="button-menu" href="about.php">About</a>
-                <a class="hide" href="about.php">Extra info about the site.</a>
-            </li>
-            <li>
-                <a class="button-menu" href="admin.php">Admin</a>
-                <a class="hide" href="admin.php">You are here.</a>
-            </li>
-        </ul>
-    </header>
+    // Append the requested resource location to the URL   
+    $url.= $_SERVER['REQUEST_URI'];
+    $pos=strpos($url,"admin/login-required.php");
+    $url=substr($url,0,$pos);
 
-    <main>
-        <div class="display-area" id="display-area">
-            <p>
-                You need to login!!!
-            </p>
-        </div>
+    $dom = new DomDocument; // instanțiem un obiect DOM
+    libxml_use_internal_errors(true);
+    $dom->loadHTMLFile($url."html/admin.php");
+    libxml_use_internal_errors(false);
+    
+    $location=$dom->getElementById("display-area");
+    $nodeP=$dom->createElement("p");
+    $nodeP->nodeValue='You need to login!';
+    $location->appendChild($nodeP);
 
-    </main>
-
-    <footer>
-        <p>Web_OPrev by Iamandi Andrei-Petrisor and Mirila Vasile Danut</p>
-		<p>Data provided by <a href="https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en"> Eurostat</a> and 
-			<a href="https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi)?introPage=intro_3.html">WHO</a>
-		</p>
-    </footer>
-
-
-</body>
-
-</html>
+    echo $dom->saveHTML();
+?>
