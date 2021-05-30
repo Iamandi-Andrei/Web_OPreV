@@ -6,16 +6,16 @@ $db = $database->getConnection();
   
 $results=array();
 if(isset($_POST['country'])&&isset($_POST['age'])&&isset($_POST['year'])&&isset($_POST['gender'])&&isset($_POST['BMI_type'])){
-	$condition='where BMI_type="'.$_POST['BMI_type'].'" and year="'.$_POST['year'].'" and country="'.$_POST['country'].'" and age="'.$_POST['age'].'" and gender="'.$_POST['gender'].'"';
-$sql = 'delete from data '.$condition; 
+	$statement=$db->prepare("delete from data where BMI_type= ? and year = ? and country = ? and age = ? and gender = ?");
+	$statement->bind_param("sisss",$_POST['BMI_type'],$_POST['year'],$_POST['country'],$_POST['age'],$_POST['gender']);
+	
+	if(!$statement->execute()){
+		die ('A survenit o eroare la interogare');
+	}else echo "Row deleted!";
 }
 else die("Missing fields");
 
-echo $sql;
 
-                if (!($rez = $db->query ($sql))) {
-                    die ('A survenit o eroare la interogare');
-                }
-				
-                echo "Row deleted!";
+
+               
 ?>

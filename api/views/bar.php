@@ -60,6 +60,19 @@ $results=$new_results;
 
 }
 
+
+ if(!($rez = $db->query("select count_nr from statistics where name = 'bar'"))) {
+        die ('A aparut o eroare');
+    }
+
+    $inreg = $rez->fetch_assoc();
+    $visits = $inreg['count_nr'];
+    $visits += 1;
+
+    if($db->query("update statistics set count_nr=$visits where name='bar'") === FALSE) {
+        die ('A aparut o eroare');
+    }
+
 $total_values=array('country','age','year','gender','BMI_type','BMI_value');
 
 $nodeG;

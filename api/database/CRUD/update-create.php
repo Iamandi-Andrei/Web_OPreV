@@ -6,14 +6,18 @@ $db = $database->getConnection();
   
 $results=array();
 if(isset($_POST['country'])&&isset($_POST['age'])&&isset($_POST['year'])&&isset($_POST['gender'])&&isset($_POST['BMI_type'])&&isset($_POST['BMI_value'])){
-	$condition='where BMI_type="'.$_POST['BMI_type'].'" and year="'.$_POST['year'].'" and country="'.$_POST['country'].'" and age="'.$_POST['age'].'" and gender="'.$_POST['gender'].'"';
-$sql = 'select * from data '.$condition; 
+	$statement=$db->prepare("select * from data where BMI_type= ? and year = ? and country = ? and age = ? and gender = ?");
+	$statement->bind_param("sisss",$_POST['BMI_type'],$_POST['year'],$_POST['country'],$_POST['age'],$_POST['gender']);
+	
 }
 else die("Missing fields");
 
-echo $sql;
+//echo $sql;
+$statement->execute();
 
-                if (!($rez = $db->query ($sql))) {
+
+
+                if (!($rez = $statement->get_result())) {
                     die ('A survenit o eroare la interogare');
                 }
 				
@@ -22,17 +26,21 @@ echo $sql;
 					array_push($results,$inreg);
 					echo "Data already existent. Updating values";
 					
-					$sql='delete from data '.$condition;
-					$db->query ($sql);
-					$sql='insert into data (country,age,year,gender,BMI_type,BMI_value) values (';
-					$sql=$sql.'"'.$_POST['country'].'","'.$_POST['age'].'","'.$_POST['year'].'","'.$_POST['gender'].'","'.$_POST['BMI_type'].'","'.$_POST['BMI_value'].'")';
-				   $db->query ($sql);
+					$statement=$db->prepare("delete from data where BMI_type= ? and year = ? and country = ? and age = ? and gender = ?");
+					$statement->bind_param("sisss",$_POST['BMI_type'],$_POST['year'],$_POST['country'],$_POST['age'],$_POST['gender']);
+					$statement->execute();
+					
+					$statement=$db->prepare("insert into data (BMI_type, year ,country , age , gender,BMI_value) values(?,?,?,?,?,?)");
+					$statement->bind_param("sisssd",$_POST['BMI_type'],$_POST['year'],$_POST['country'],$_POST['age'],$_POST['gender'],$_POST['BMI_value']);
+					$statement->execute();
+					
+					
                 }
 				else{
 					echo" Inserting now";
-					$sql='insert into data (country,age,year,gender,BMI_type,BMI_value) values (';
-					$sql=$sql.'"'.$_POST['country'].'","'.$_POST['age'].'","'.$_POST['year'].'","'.$_POST['gender'].'","'.$_POST['BMI_type'].'","'.$_POST['BMI_value'].'")';
-				   $db->query ($sql);
+					$statement=$db->prepare("insert into data (BMI_type, year ,country , age , gender,BMI_value) values(?,?,?,?,?,?)");
+					$statement->bind_param("sisssd",$_POST['BMI_type'],$_POST['year'],$_POST['country'],$_POST['age'],$_POST['gender'],$_POST['BMI_value']);
+					$statement->execute();
 					
 				}
 

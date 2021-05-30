@@ -49,9 +49,7 @@ function submitResult(){
 				if(opt.selected==true)
 				url+=opt.value+",";
 				
-					
-				
-				
+						
 				
 			}
 			url = url.substring(0, url.length - 1);
@@ -69,11 +67,18 @@ function submitResult(){
 	
 
 	var finalUrl="./../api/views/"+type+".php?"+url;
-	//document.getElementById("display-area").innerHTML=finalUrl;
+	
 	xmlhttp.open("GET", finalUrl, true);
-		document.getElementById("display-area").innerHTML=finalUrl;
+		//document.getElementById("display-area").innerHTML=finalUrl;
     xmlhttp.send();
-
+	
+	if(type=="table")
+		document.getElementById("export").innerHTML="<option value='CSV'>CSV</option>";
+	if(type=="bar")
+		document.getElementById("export").innerHTML="<option value='SVG'>SVG</option>";
+	if(type=="line")
+		document.getElementById("export").innerHTML="<option value='PNG'>PNG</option> <option value='SVG'>SVG</option>";
+                
 
 	
 	

@@ -53,7 +53,7 @@
                 <label for="gender">Select the gender:</label>
                 <input type="text" id="gender" name="gender">
 
-                <label for="BMI_type">Select the gender:</label>
+                <label for="BMI_type">Select the BMI type:</label>
                 <input type="text" id="BMI_type" name="BMI_type">
 
                 <button class="button-log" type="submit">
@@ -65,19 +65,19 @@
                 <label for="country">Select the country that you want to update:</label>
                 <input type="text" id="country" name="country">
 
-                <label for="age">Select the year:</label>
+                <label for="age">Select the age:</label>
                 <input type="text" id="age" name="age">
 
                 <label for="year">Select the year:</label>
                 <input type="text" id="year" name="year">
 
-                <label for="gender">Select the year:</label>
+                <label for="gender">Select the gender:</label>
                 <input type="text" id="gender" name="gender">
 
-                <label for="BMI_value">Select the BMI:</label>
+                <label for="BMI_value">Select the BMI value:</label>
                 <input type="text" id="BMI_value" name="BMI_value">
 
-                <label for="BMI_type">Select the BMI:</label>
+                <label for="BMI_type">Select the BMI type:</label>
                 <input type="text" id="BMI_type" name="BMI_type">
 
                 <button class="button-log" type="submit">

@@ -116,7 +116,17 @@ foreach($pairs as $r)
 */
 
 
+ if(!($rez = $db->query("select count_nr from statistics where name = 'line'"))) {
+        die ('A aparut o eroare');
+    }
 
+    $inreg = $rez->fetch_assoc();
+    $visits = $inreg['count_nr'];
+    $visits += 1;
+
+    if($db->query("update statistics set count_nr=$visits where name='line'") === FALSE) {
+        die ('A aparut o eroare');
+    }
 
 
 
