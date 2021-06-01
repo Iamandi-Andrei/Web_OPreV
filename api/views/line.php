@@ -153,7 +153,7 @@ function printGraph($options,$values,$color){
 			if($values[$i]!=$maxValue){
 			 $Y2=810-810*($values[$i]-$minValue)/($maxValue-$minValue);
 			
-			echo "<text x='15%' y=".$Y2." fill='rgb".$color."' style='font-size: 10pt' >".$values[$i]."</text>";
+			echo '<text x="15%" y="'.  $Y2  .'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$values[$i].'</text>';
 			ob_flush();
 			}
 		$i++; 
@@ -167,7 +167,7 @@ function printGraph($options,$values,$color){
 		 $valX2=(20+((array_search($options[$i], $years)+1)*$percent))."%";
 		 $Y1=810-810*(($prev-$minValue)/($maxValue-$minValue));
 		 $Y2=810-810*(($values[$i]-$minValue)/($maxValue-$minValue));	 
-		 echo "<line x1=".$valX1." y1=".$Y1." x2=".$valX2." y2=".$Y2." style='stroke:rgb".$color.";stroke-width:2'></line>";
+		 echo '<line x1="'.$valX1.'" y1="'.$Y1.'" x2="'.$valX2.'" y2="'.$Y2.'" style="stroke:rgb'.$color.';stroke-width:2"></line>';
 		 ob_flush();
 		 $prev=$values[$i];
 		 $i++;
@@ -187,15 +187,15 @@ function printGraph($options,$values,$color){
 	while($i<count($years)){
 		$val=$current."%";
 		if($i%2==0)
-		echo '<text x="'.$val.'" y="100%" fill=red  >'.$years[$i]."</text>";
+		echo '<text x="'.$val.'" y="100%" fill="red"  >'.$years[$i]."</text>";
 	
 		else
-			echo '<text x="'.$val.'" y="92%" fill=red  >'.$years[$i]."</text>";
+			echo '<text x="'.$val.'" y="92%" fill="red"  >'.$years[$i]."</text>";
 		$current=$current+$percent;
 		$i++;
 		}
-	echo "<text x='15%' y=10 fill=red style='font-size: 10pt' >".$maxValue."</text>";
-	echo "<text x='15%' y=810 fill=red style='font-size: 10pt' >".$minValue."</text>";
+	echo '<text x="15%" y="10" fill="red" style="font-size: 10pt" >'.$maxValue.'</text>';
+	echo '<text x="15%" y="810" fill="red" style="font-size: 10pt" >'.$minValue.'</text>';
 	ob_flush();
 	
 	/*
@@ -223,8 +223,8 @@ foreach($pairs as $unique){
 		$color ="(".mt_rand(0, 255).",".mt_rand(0, 255).",".mt_rand(0, 255).")";
 		if((count($options)>1)&&(count($values)>1)){
 			$yP=$y."%";
-			echo "<text x='0.2%' y=".$yP." fill='rgb".$color."' style='font-size: 10pt' >".$unique['country']." ".$unique['BMI_type']." </text>";
-			echo "<text x='0.2%' y=".($y+1)."% fill ='rgb".$color."' style='font-size:10pt' >".$unique['age']." ".$unique['gender']."</text>";
+			echo '<text x="0.2%" y="'.$yP.'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$unique['country']." ".$unique['BMI_type'].' </text>';
+			echo '<text x="0.2%" y="'.($y+1).'%" fill ="rgb'.$color.'" style="font-size:10pt" >'.$unique['age']." ".$unique['gender'].'</text>';
 			$y=$y+$perc;
 	printGraph($options,$values,$color);
 	
