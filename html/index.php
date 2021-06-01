@@ -47,17 +47,17 @@
         <ul class="top-menu">
 
             <li>
-                <a class="button-menu" href="./../html/index">Main page</a>
-                <a class="hide" href="./../html/index.html">You are here.</a>
+                <a class="button-menu" href="./../html/index.php">Main page</a>
+                <a class="hide" href="./../html/index.php">You are here.</a>
             </li>
             
             <li>
-                <a class="button-menu" href="./../html/contact">Contact</a>
-                <a class="hide" href="./../html/contact.html">A way of contacting the team.</a>
+                <a class="button-menu" href="./../html/contact.php">Contact</a>
+                <a class="hide" href="./../html/contact.php">A way of contacting the team.</a>
             </li>
             <li>
-                <a class="button-menu" href="./../html/about">About</a>
-                <a class="hide" href="./../html/about.html">Extra info about the site.</a>
+                <a class="button-menu" href="./../html/about.php">About</a>
+                <a class="hide" href="./../html/about.php">Extra info about the site.</a>
             </li>
             <li>
                 <a class="button-menu" href="./../html/admin.php">Admin</a>
@@ -127,7 +127,7 @@
             <button type="submit" onclick="download('<?php echo $url; ?>'); return false;">Submit</button>
         </form>
 
-        <canvas id="canvas" width="800" height="400"></canvas>
+        <canvas id="canvas" width="900" height="900"></canvas>
         <div id="png"> </div>
 
 		<p>Data provided by <a href="https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en"> Eurostat</a> and 
