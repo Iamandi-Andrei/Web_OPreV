@@ -71,6 +71,7 @@ main {
     width: 100%;
 	box-sizing:border-box;
     border: 2px solid black;
+    overflow-y: scroll;
 }
 
 input[type=text],

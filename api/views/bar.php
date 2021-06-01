@@ -8,6 +8,12 @@ include_once '../database/database.php';
 // instantiate database and product object
 $database = new Database();
 $db = $database->getConnection();
+
+$create_file = fopen("representation.svg", "w");
+fclose($create_file);
+
+file_put_contents("representation.svg", "");
+$file = fopen("representation.svg", "a");
   
 $results=array();
 $sql = "select * from data";
@@ -97,11 +103,15 @@ foreach($new_results as $r){
 }
 
 function addRect($Y, $value) {
+    global $file;
     echo '<rect x="20.3%" y="' . $Y . '" width="' . $value . '%" height="10"></rect>';
+    fwrite($file, '<rect x="20.3%" y="' . $Y . '" width="' . $value . '%" height="10"></rect>');
 }
 
 function addText($Y, $value, $X) {
+    global $file;
     echo '<text x="' . $X . '" y="' . $Y . '" fill="red" style="font-size: 10pt;">' . $value . '</text>';
+    fwrite($file, '<text x="' . $X . '" y="' . $Y . '" fill="red" style="font-size: 10pt;">' . $value . '</text>');
 }
 
 try {
@@ -109,30 +119,91 @@ try {
     $pixels = $countryNumber * 20;
 
     $view = 16.575 * $countryNumber;
-    $view2 = $view * 1.81;
+    $view2 = ($view * 1.81) + 5;
 
     echo '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="' . $view2 . '" width="100%" preserveAspectRatio="xMinYMin meet">';
+    fwrite($file, '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="' . $view2 . '" width="100%" preserveAspectRatio="xMinYMin meet">');
     
+    echo '<style>
+        .bar {
+            fill: red; /* changes the background */
+            height: 21px;
+            transition: fill .3s ease;
+            cursor: pointer;
+            font-family: Helvetica, sans-serif;
+        }
+        .bar text {
+            color: black;
+        }
+        .bar:hover,
+        .bar:focus {
+            fill: black;
+        }
+        .bar:hover text,
+        .bar:focus text {
+            fill: red;
+        }
+        .hidden-text {
+            display :none;
+        }
+        
+        .bar:hover .hidden-text {
+        display: block;
+        } </style>';
+    fwrite($file, '<style>
+    .bar {
+        fill: red; /* changes the background */
+        height: 21px;
+        transition: fill .3s ease;
+        cursor: pointer;
+        font-family: Helvetica, sans-serif;
+    }
+    .bar text {
+        color: black;
+    }
+    .bar:hover,
+    .bar:focus {
+        fill: black;
+    }
+    .bar:hover text,
+    .bar:focus text {
+        fill: red;
+    }
+    .hidden-text {
+        display :none;
+    }
+    
+    .bar:hover .hidden-text {
+    display: block;
+    } </style>');
+
     $i=0;
     $Y = 10;
     while($i<count($country)){
         echo '<g class="bar">';
+        fwrite($file, '<g class="bar">');
         addText($Y+9, $country[$i] . ' ' . $year[$i], 2);
         addRect($Y, $BMIvalues[$i]);
         $BMI_v = 22 + $BMIvalues[$i];
         addText($Y+9, strval($BMIvalues[$i]), "$BMI_v"."%");
         echo '<text class="hidden-text" x="20.2%" y="' . $Y+23 . '" fill="red" style="font-size: 10pt;">' . $age[$i] . ' ' . $gender[$i] . ' ' . $BMItype[$i] . '</text>';
+        fwrite($file, '<text class="hidden-text" x="20.2%" y="' . $Y+23 . '" fill="red" style="font-size: 10pt;">' . $age[$i] . ' ' . $gender[$i] . ' ' . $BMItype[$i] . '</text>');
         $i++;
         $Y=$Y+30;
         echo '</g>';
+        fwrite($file, '</g>');
     }
 
     echo '<line x1="20%" y1="0" x2="20%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>';
+    fwrite($file, '<line x1="20%" y1="0" x2="20%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>');
 
     echo '</svg>';
+    fwrite($file, '</svg>');
 }
 catch(Exception $e) {
     die ("A aparut o exceptie...");
 }
+
+fclose($file);
 
 ?>

@@ -12,21 +12,21 @@
         <ul class="top-menu">
 
             <li>
-                <a class="button-menu" href="./../html/index.html">Main page</a>
-                <a class="hide" href="./../html/index.html">Area where the main functionality is.</a>
+                <a class="button-menu" href="./../html/index.php">Main page</a>
+                <a class="hide" href="./../html/index.php">Area where the main functionality is.</a>
             </li>
             
             <li>
-                <a class="button-menu" href="./../html/contact.html">Contact</a>
-                <a class="hide" href="./../html/contact.html">A way of contacting the team.</a>
+                <a class="button-menu" href="./../html/contact.php">Contact</a>
+                <a class="hide" href="./../html/contact.php">A way of contacting the team.</a>
             </li>
             <li>
-                <a class="button-menu" href="./../html/about.html">About</a>
-                <a class="hide" href="./../html/about.html">You are here.</a>
+                <a class="button-menu" href="./../html/about.php">About</a>
+                <a class="hide" href="./../html/about.php">You are here.</a>
             </li>
             <li>
-                <a class="button-menu" href="./../html/admin.html">Admin</a>
-                <a class="hide" href="./../html/admin.html">Admin module here</a>
+                <a class="button-menu" href="./../html/admin.php">Admin</a>
+                <a class="hide" href="./../html/admin.php">Admin module here</a>
             </li>
         </ul>
     </header>

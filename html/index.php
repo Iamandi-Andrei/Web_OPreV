@@ -1,3 +1,35 @@
+<?php
+
+    include_once '../api/database/database.php';
+
+    $database = new Database();
+    $mysql = $database->getConnection();
+
+    if(!($rez = $mysql->query("select count_nr from statistics where name = 'visits'"))) {
+        die ('A aparut o eroare');
+    }
+
+    $inreg = $rez->fetch_assoc();
+    $visits = $inreg['count_nr'];
+    $visits += 1;
+
+    if($mysql->query("update statistics set count_nr=$visits where name='visits'") === FALSE) {
+        die ('A aparut o eroare');
+    }
+
+    if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+    $url = "https://";   
+    else  
+        $url = "http://";   
+    // Append the host(domain name, ip) to the URL.   
+    $url.= $_SERVER['HTTP_HOST'];   
+
+    // Append the requested resource location to the URL   
+    $url.= $_SERVER['REQUEST_URI'];
+    $pos=strpos($url,"html");
+    $url=substr($url,0,$pos);
+?>
+
 <!DOCTYPE HTML>
 <html lang="en">
 
@@ -7,6 +39,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 	<script src="./../html/javascrpt/loadOption.js"></script>
 	<script src="./../html/javascrpt/submitRepresentation.js"></script>
+    <script src="./../html/javascrpt/export.js"></script>
 </head>
 
 <body onload="optionFunction()">
@@ -27,8 +60,8 @@
                 <a class="hide" href="./../html/about.html">Extra info about the site.</a>
             </li>
             <li>
-                <a class="button-menu" href="./../html/admin">Admin</a>
-                <a class="hide" href="./../html/admin.html">Admin module here</a>
+                <a class="button-menu" href="./../html/admin.php">Admin</a>
+                <a class="hide" href="./../html/admin.php">Admin module here</a>
             </li>
         </ul>
     </header>
@@ -84,18 +117,19 @@
 
     </main>
 
-    <footer>
+    <footer id="footer">
         <form class="form-areaExport">
 
             <label for="export">Export as:</label>
-            <select name="export" id="export">
-                
+            <select name="input1" id="export">
             </select>
 
-            <button type="submit">Submit</button>
-
-
+            <button type="submit" onclick="download('<?php echo $url; ?>'); return false;">Submit</button>
         </form>
+
+        <canvas id="canvas" width="800" height="400"></canvas>
+        <div id="png"> </div>
+
 		<p>Data provided by <a href="https://ec.europa.eu/eurostat/databrowser/view/sdg_02_10/default/table?lang=en"> Eurostat</a> and 
 			<a href="https://www.who.int/data/gho/data/themes/theme-details/GHO/body-mass-index-(bmi)?introPage=intro_3.html">WHO</a>
 		</p>
