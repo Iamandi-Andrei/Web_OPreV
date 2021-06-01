@@ -49,6 +49,20 @@
 
 
             </p>
+			
+			
+			<p>Api info</p>
+			<p>Resurse folosite pentru a genera vizualizarile. Raspunsurile vor fi cod XML care poate fi introdus in orice pagina web</p>
+			<p> machine_location/api/views/<b>ABC</b>.php?<b>v1</b>=<b>v2,v3</b>...&amp;<b>v5</b>=<b>v6,v7</b>... </p>
+			<p>Unde :</p>
+			<ul>
+			<li><b>ABC</b> - tipul view-ului, valori posibile: <b>table,line,bar</b></li>
+			<li>	<b>v1,v5</b> categoria filtrului, valori posibile: <b>country,age,gender,year,BMI_type</b></li>
+			<li> <b>v2,v3,v6,v7</b> valoarea efectiva a filtrului, un filtru poate contine una sau mai multe valori separate prin virgula</li>
+			</ul>
+			<p>Resursa poate fi apelata cu 0 pana la max_filters filtre.</p>
+			
+			<p>Pentru a vedea valorile posibile pentru un anumit filtru <b>X</b>, se poate apela <i> "machine_location/html/javascrpt/getOptions.php?filter=<b>X</b>" </i></p>
 
             <p>The team behind the project:</p>
             <ul>

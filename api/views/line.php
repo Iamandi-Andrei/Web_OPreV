@@ -135,36 +135,37 @@ foreach($pairs as $r)
     }
 
 
+$height=17.5*count($pairs)+100;
+if($height<500)$height=500;
 
 
 
-
- echo '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewbox="0 0 900 900" preserveAspectRatio="none">
+ echo '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="'.$height.'" width="100%"  preserveAspectRatio="none">
 <rect x="0" y="0" rx="7" ry="7" style="width: 100%; height: 100%;
-fill: #00CCEE; stroke: black"></rect>
-<line x1="0" y1="90%" x2="900" y2="90%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
-<line x1="10%" y1="0" x2="10%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
-<line x1="20%" y1="0" x2="20%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+fill: #99CCEE; stroke: black"></rect>
+<line x1="0" y1="'.($height-100).'" x2="100%" y2="'.($height-100).'" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+<line x1="10%" y1="0" x2="10%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+<line x1="20%" y1="0" x2="20%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
 ';
-fwrite($file, '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="100%" width="100%" viewbox="0 0 900 900" preserveAspectRatio="none">
+fwrite($file, '<svg id="svgg" xmlns="http://www.w3.org/2000/svg" height="'.$height.'" width="100%"  preserveAspectRatio="none">
 <rect x="0" y="0" rx="7" ry="7" style="width: 100%; height: 100%;
-fill: #00CCEE; stroke: black"></rect>
-<line x1="0" y1="90%" x2="900" y2="90%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
-<line x1="10%" y1="0" x2="10%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
-<line x1="20%" y1="0" x2="20%" y2="900" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+fill: #99CCEE; stroke: black"></rect>
+<line x1="0" y1="'.($height-100).'" x2="100%" y2="'.($height-100).'" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+<line x1="10%" y1="0" x2="10%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
+<line x1="20%" y1="0" x2="20%" y2="100%" style="stroke:rgb(255,0,0);stroke-width:2"></line>
 ');
 ob_flush();
 
 
 
 function printGraph($options,$values,$color){
-	global $minValue,$maxValue,$percent,$years,$file;
+	global $minValue,$maxValue,$percent,$years,$file,$height;
 	
 	 
 	 $i=0;
 	 while($i<count($values)){
 			if($values[$i]!=$maxValue){
-			 $Y2=810-810*($values[$i]-$minValue)/($maxValue-$minValue);
+			 $Y2=$height-$height*($values[$i]-$minValue)/($maxValue-$minValue)-100;
 			
 			echo '<text x="15%" y="'.  $Y2  .'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$values[$i].'</text>';
 			fwrite($file, '<text x="15%" y="'.  $Y2  .'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$values[$i].'</text>');
@@ -179,8 +180,8 @@ function printGraph($options,$values,$color){
 		 $valX1=(20+((array_search($options[$i-1], $years)+1)*$percent))."%";
 		 
 		 $valX2=(20+((array_search($options[$i], $years)+1)*$percent))."%";
-		 $Y1=810-810*(($prev-$minValue)/($maxValue-$minValue));
-		 $Y2=810-810*(($values[$i]-$minValue)/($maxValue-$minValue));	 
+		 $Y1=$height-$height*(($prev-$minValue)/($maxValue-$minValue))-100;
+		 $Y2=$height-$height*(($values[$i]-$minValue)/($maxValue-$minValue))-100;	 
 		 echo '<line x1="'.$valX1.'" y1="'.$Y1.'" x2="'.$valX2.'" y2="'.$Y2.'" style="stroke:rgb'.$color.';stroke-width:2"></line>';
 		 fwrite($file, '<line x1="'.$valX1.'" y1="'.$Y1.'" x2="'.$valX2.'" y2="'.$Y2.'" style="stroke:rgb'.$color.';stroke-width:2"></line>');
 		 ob_flush();
@@ -202,21 +203,21 @@ function printGraph($options,$values,$color){
 	while($i<count($years)){
 		$val=$current."%";
 		if($i%2==0) {
-			echo '<text x="'.$val.'" y="100%" fill="red"  >'.$years[$i]."</text>";
-			fwrite($file, '<text x="'.$val.'" y="100%" fill="red"  >'.$years[$i]."</text>");
+			echo '<text x="'.$val.'" y="'.($height-80).'" fill="red"  >'.$years[$i]."</text>";
+			fwrite($file, '<text x="'.$val.'" y="'.($height-80).'" fill="red"  >'.$years[$i]."</text>");
 		}
 	
 		else {
-			echo '<text x="'.$val.'" y="92%" fill="red"  >'.$years[$i]."</text>";
-			fwrite($file, '<text x="'.$val.'" y="100%" fill="red"  >'.$years[$i]."</text>");
+			echo '<text x="'.$val.'" y="'.($height-10).'" fill="red"  >'.$years[$i]."</text>";
+			fwrite($file, '<text x="'.$val.'" y="'.($height-10).'" fill="red"  >'.$years[$i]."</text>");
 		}
 		$current=$current+$percent;
 		$i++;
 		}
 	echo '<text x="15%" y="10" fill="red" style="font-size: 10pt" >'.$maxValue.'</text>';
 	fwrite($file, '<text x="15%" y="10" fill="red" style="font-size: 10pt" >'.$maxValue.'</text>');
-	echo '<text x="15%" y="810" fill="red" style="font-size: 10pt" >'.$minValue.'</text>';
-	fwrite($file, '<text x="15%" y="810" fill="red" style="font-size: 10pt" >'.$minValue.'</text>');
+	echo '<text x="15%" y="'.($height-100).'" fill="red" style="font-size: 10pt" >'.$minValue.'</text>';
+	fwrite($file, '<text x="15%" y="'.($height-100).'" fill="red" style="font-size: 10pt" >'.$minValue.'</text>');
 	ob_flush();
 	
 	/*
@@ -229,7 +230,7 @@ $options=array(2014,2015,2016,2017);
 $values=array(500,1000,100,210);
 printGraph($options,$values,$color);
 */
-$perc=90/(count($pairs)+1);
+$perc=($height-100)/(count($pairs)+1);
 $y=1;
 //echo $perc;
 foreach($pairs as $unique){
@@ -243,11 +244,11 @@ foreach($pairs as $unique){
 		}
 		$color ="(".mt_rand(0, 255).",".mt_rand(0, 255).",".mt_rand(0, 255).")";
 		if((count($options)>1)&&(count($values)>1)){
-			$yP=$y."%";
-			echo '<text x="0.2%" y="'.$yP.'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$unique['country']." ".$unique['BMI_type'].' </text>';
-			fwrite($file, '<text x="0.2%" y="'.$yP.'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$unique['country']." ".$unique['BMI_type'].' </text>');
-			echo '<text x="0.2%" y="'.($y+1).'%" fill ="rgb'.$color.'" style="font-size:10pt" >'.$unique['age']." ".$unique['gender'].'</text>';
-			fwrite($file, '<text x="0.2%" y="'.($y+1).'%" fill ="rgb'.$color.'" style="font-size:10pt" >'.$unique['age']." ".$unique['gender'].'</text>');
+			//$yP=$y."%";
+			echo '<text x="0.2%" y="'.$y.'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$unique['country']." ".$unique['BMI_type'].' </text>';
+			fwrite($file, '<text x="0.2%" y="'.$y.'" fill="rgb'.$color.'" style="font-size: 10pt" >'.$unique['country']." ".$unique['BMI_type'].' </text>');
+			echo '<text x="0.2%" y="'.($y+10).'" fill ="rgb'.$color.'" style="font-size:10pt" >'.$unique['age']." ".$unique['gender'].'</text>';
+			fwrite($file, '<text x="0.2%" y="'.($y+10).'" fill ="rgb'.$color.'" style="font-size:10pt" >'.$unique['age']." ".$unique['gender'].'</text>');
 			$y=$y+$perc;
 	printGraph($options,$values,$color);
 	
