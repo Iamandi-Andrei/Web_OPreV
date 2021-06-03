@@ -1,6 +1,13 @@
 <?php
 include_once '../database.php';
 
+session_start([
+	'cookie_lifetime' => 86400,
+]);
+if(!isset($_SESSION['login']) && !$_SESSION['login']) {
+	header("Location: login-required.php");
+}
+
 $database = new Database();
 $db = $database->getConnection();
   
@@ -11,11 +18,27 @@ if(isset($_POST['country'])&&isset($_POST['age'])&&isset($_POST['year'])&&isset(
 	
 	if(!$statement->execute()){
 		die ('A survenit o eroare la interogare');
-	}else echo "Row deleted!";
+	}else {
+		$output = "Row deleted!";
+	}
 }
-else die("Missing fields");
+else $output = "Missing fields";
+$db->close();
 
+if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+$url = "https://";   
+else  
+	$url = "http://";   
+// Append the host(domain name, ip) to the URL.   
+$url.= $_SERVER['HTTP_HOST'];   
 
-
+// Append the requested resource location to the URL   
+$url.= $_SERVER['REQUEST_URI'];
+$pos=strpos($url,"api/database/CRUD/delete.php");
+$url=substr($url,0,$pos);
                
 ?>
+<script>
+	window.location = '<?php echo $url . "admin/update-db.php"; ?>';
+	alert('<?php echo $output; ?>')
+</script>
