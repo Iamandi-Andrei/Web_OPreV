@@ -2,66 +2,11 @@
 <html>
 
 <?php
-        include_once '../api/database/database.php';
+    
         session_start();
 
         if(!isset($_SESSION['login']) && !$_SESSION['login']) {
             header("Location: login-required.php");
-        }
-
-        $database = new Database();
-        $mysql = $database->getConnection();
-
-        $sql = "select * from statistics where name='visits'";
-
-        if (!($rez = $mysql->query ($sql))) {
-            die ('A survenit o eroare la interogare');
-        }
-
-        if (!($inreg = $rez->fetch_assoc())) {
-            $visits = 'Error!!!';
-        }
-        else {
-            $visits = $inreg["count_nr"];
-        }
-
-        $sql = "select * from statistics where name='table'";
-
-        if (!($rez = $mysql->query ($sql))) {
-            die ('A survenit o eroare la interogare');
-        }
-
-        if (!($inreg = $rez->fetch_assoc())) {
-            $table = 'Error!!!';
-        }
-        else {
-            $table = $inreg["count_nr"];
-        }
-
-        $sql = "select * from statistics where name='line'";
-
-        if (!($rez = $mysql->query ($sql))) {
-            die ('A survenit o eroare la interogare');
-        }
-
-        if (!($inreg = $rez->fetch_assoc())) {
-            $line = 'Error!!!';
-        }
-        else {
-            $line = $inreg["count_nr"];
-        }
-
-        $sql = "select * from statistics where name='bar'";
-
-        if (!($rez = $mysql->query ($sql))) {
-            die ('A survenit o eroare la interogare');
-        }
-
-        if (!($inreg = $rez->fetch_assoc())) {
-            $bar = 'Error!!!';
-        }
-        else {
-            $bar = $inreg["count_nr"];
         }
 
         if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
@@ -109,16 +54,16 @@
 
     <main>
         <div class="display-area" id="display-area">
-            <button class="button-log" onclick="getVisits(<?php echo $visits;?>)">
+            <button class="button-log" onclick="getVisits()">
                 CHECK VISITS
             </button>
-            <button class="button-log" onclick="getTable(<?php echo $table;?>)">
+            <button class="button-log" onclick="getTable()">
                 CHECK TABLE SEARCHS
             </button>
-            <button class="button-log" onclick="getLine(<?php echo $line;?>)">
+            <button class="button-log" onclick="getLine()">
                 CHECK LINE SEARCHS
             </button>
-            <button class="button-log" onclick="getBar(<?php echo $bar;?>)">
+            <button class="button-log" onclick="getBar()">
                 CHECK BAR SEARCHS
             </button>
             <form method="post" action="./update-db.php">
