@@ -15,6 +15,6 @@ $url=substr($url,0,$pos);
 ?>
 
 <script>
-	window.location = '<?php echo "http://localhost/Web_OPreV/" . "html/admin.php"; ?>';
+	window.location = '<?php echo $url. "html/admin.php"; ?>';
 	alert('<?php echo "You need to login!"; ?>')
 </script>
