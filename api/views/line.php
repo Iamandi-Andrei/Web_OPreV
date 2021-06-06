@@ -231,7 +231,7 @@ $values=array(500,1000,100,210);
 printGraph($options,$values,$color);
 */
 $perc=($height-100)/(count($pairs)+1);
-$y=1;
+$y=10;
 //echo $perc;
 foreach($pairs as $unique){
 	$options=array();
