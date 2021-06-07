@@ -6,7 +6,7 @@
 
 
 
-
+header("Content-type:image/svg+xml");
  
 
 include_once '../database/database.php';
@@ -76,6 +76,9 @@ $results=$new_results;
 
 if(count($new_results)==0)
 	$new_results=$results;
+
+if(count($new_results)==0)
+	http_response_code(404);
 
 $total_values=array('country','age','year','gender','BMI_type','BMI_value');
 
@@ -257,6 +260,7 @@ foreach($pairs as $unique){
 echo "</svg>";
 fwrite($file, "</svg>");
 fclose($file);
+http_response_code(200);
 
  
  

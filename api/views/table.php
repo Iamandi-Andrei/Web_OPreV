@@ -3,7 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 // include database and object files
 include_once '../database/database.php';
-
+header("Content-type:application/xml");
   
 // instantiate database and product object
 $database = new Database();
@@ -59,6 +59,9 @@ foreach($filters as $filter)
 $results=$new_results;
 
 }
+
+if(count($new_results)==0)
+	http_response_code(404);
 
 
  if(!($rez = $db->query("select count_nr from statistics where name = 'table'"))) {
@@ -131,5 +134,6 @@ while($i < count($country)) {
 }
 
 echo '</tbody></table>';
+http_response_code(200);
 
 ?>

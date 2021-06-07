@@ -1,6 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 
+header("Content-type:image/svg+xml");
 // include database and object files
 include_once '../database/database.php';
 
@@ -65,6 +66,9 @@ foreach($filters as $filter)
 $results=$new_results;
 
 }
+
+if(count($new_results)==0)
+	http_response_code(404);
 
 
  if(!($rez = $db->query("select count_nr from statistics where name = 'bar'"))) {
@@ -205,5 +209,6 @@ catch(Exception $e) {
 }
 
 fclose($file);
+http_response_code(200);
 
 ?>
