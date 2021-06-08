@@ -1,5 +1,7 @@
 <?php
-    session_start();
+    session_start([
+        'cookie_lifetime' => 86400,
+    ]);
 
     if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
     $url = "https://";   

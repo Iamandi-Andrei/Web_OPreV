@@ -1,6 +1,8 @@
 <?php 
 
-session_start();
+session_start([
+    'cookie_lifetime' => 86400,
+]);
 
 session_destroy();
 

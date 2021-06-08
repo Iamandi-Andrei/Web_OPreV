@@ -3,7 +3,9 @@
 
 <?php
     
-        session_start();
+        session_start([
+            'cookie_lifetime' => 86400,
+        ]);
 
         if(!isset($_SESSION['login']) && !$_SESSION['login']) {
             header("Location: login-required.php");
