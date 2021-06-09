@@ -64,6 +64,10 @@
 			
 			<p>Pentru a vedea valorile posibile pentru un anumit filtru <b>X</b>, se poate apela <i> "machine_location/html/javascrpt/getOptions.php?filter=<b>X</b>" </i></p>
 
+			<p><b>User guide: <a href="./../raport/Ghid-Utilizare.html">guide</a></b></p>
+			<p><b>Progress raport: <a href="./../raport/Progres.html">progres</a></b></p>
+			<p><b>Initial raport: <a href="./../raport/Scholarly HTML.html">raport</a></b></p>
+
             <p>The team behind the project:</p>
             <ul>
                 <li>Mirila Vasile Danut 2A2</li>
