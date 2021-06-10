@@ -78,7 +78,7 @@ if(count($new_results)==0)
 	$new_results=$results;
 
 if(count($new_results)==0)
-	http_response_code(404);
+{http_response_code(404);die("No data found");}
 
 $total_values=array('country','age','year','gender','BMI_type','BMI_value');
 
