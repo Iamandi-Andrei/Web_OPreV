@@ -3,7 +3,7 @@ error_reporting(E_ERROR | E_PARSE);
 
 // include database and object files
 include_once '../database/database.php';
-header("Content-type:application/xml");
+//header("Content-type:application/xml");
   
 // instantiate database and product object
 $database = new Database();

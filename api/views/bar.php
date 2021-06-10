@@ -1,7 +1,7 @@
 <?php
 error_reporting(E_ERROR | E_PARSE);
 
-header("Content-type:image/svg+xml");
+//header("Content-type:image/svg+xml");
 // include database and object files
 include_once '../database/database.php';
 

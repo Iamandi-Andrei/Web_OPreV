@@ -6,7 +6,7 @@
 
 
 
-header("Content-type:image/svg+xml");
+//header("Content-type:image/svg+xml");
  
 
 include_once '../database/database.php';
