@@ -48,7 +48,7 @@ if(isset($_GET['gender']))
 if(isset($_GET['BMI_type']))
 	array_push($parameters,'BMI_type');
 
-
+$new_results=array();
 foreach($parameters as $param){
 $new_results=array();
 $filters=explode(",",$_GET[$param]);
@@ -66,6 +66,9 @@ foreach($filters as $filter)
 $results=$new_results;
 
 }
+
+if(count($new_results)==0)
+	$new_results=$results;
 
 if(count($new_results)==0)
 	http_response_code(404);
